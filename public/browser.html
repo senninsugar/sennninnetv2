@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sennin Browser - sennninnetwork</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand-small" href="/">sennninnetwork</a>
+
+    <nav class="topnav">
+      <a href="/">検索</a>
+      <a href="/settings.html">設定</a>
+      <a href="/developer.html">デベロッパー</a>
+    </nav>
+  </header>
+
+  <main class="browser-page">
+    <section class="browser-shell">
+      <div class="browser-toolbar">
+        <button id="browserBack" class="browser-button">←</button>
+        <button id="browserForward" class="browser-button">→</button>
+        <button id="browserReload" class="browser-button">↻</button>
+
+        <input
+          id="browserAddress"
+          class="browser-address"
+          type="text"
+          placeholder="snn://example または https://example.com"
+        >
+
+        <button id="browserGo" class="primary-button">移動</button>
+      </div>
+
+      <div id="browserInfo" class="browser-info">
+        Sennin Browser
+      </div>
+
+      <iframe
+        id="browserFrame"
+        class="browser-frame"
+        title="Sennin Browser"
+        sandbox="allow-scripts allow-forms allow-popups allow-modals"
+      ></iframe>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
