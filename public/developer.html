@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developer - sennninnetwork</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand-small" href="/">sennninnetwork</a>
+
+    <nav class="topnav">
+      <a href="/settings.html">設定</a>
+      <a class="active" href="/developer.html">デベロッパー</a>
+    </nav>
+  </header>
+
+  <main class="developer-page">
+    <section class="page-heading">
+      <p class="eyebrow">DEVELOPER</p>
+      <h1>開発者センター</h1>
+      <p>SenninNetのサイト、ドメイン、外部ホスティングを管理します。</p>
+    </section>
+
+    <section id="loginPanel" class="panel">
+      <h2>ログイン</h2>
+      <p>サイト公開やドメイン取得にはアカウントが必要です。</p>
+
+      <div class="form-grid">
+        <label>
+          ユーザー名
+          <input id="loginUsername" type="text" maxlength="32">
+        </label>
+
+        <label>
+          パスワード
+          <input id="loginPassword" type="password" maxlength="128">
+        </label>
+      </div>
+
+      <div class="button-row">
+        <button id="loginButton" class="primary-button">ログイン</button>
+        <button id="registerButton" class="secondary-button">新規登録</button>
+      </div>
+
+      <p id="authMessage" class="message"></p>
+    </section>
+
+    <div id="developerContent" class="hidden">
+      <section class="dashboard-grid">
+        <div class="stat-card">
+          <span>サイト</span>
+          <strong id="siteCount">0</strong>
+        </div>
+
+        <div class="stat-card">
+          <span>ドメイン</span>
+          <strong id="domainCount">0</strong>
+        </div>
+
+        <div class="stat-card">
+          <span>総アクセス</span>
+          <strong id="totalViews">0</strong>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-title-row">
+          <div>
+            <h2>Sennin Domain</h2>
+            <p>独自のSenninNetアドレスを取得できます。</p>
+          </div>
+        </div>
+
+        <div class="domain-create">
+          <input
+            id="domainInput"
+            type="text"
+            maxlength="32"
+            placeholder="mysite"
+          >
+          <span class="domain-suffix">.snn</span>
+          <button id="checkDomainButton" class="secondary-button">確認</button>
+          <button id="getDomainButton" class="primary-button">取得</button>
+        </div>
+
+        <p class="domain-preview">snn://<span id="domainPreview">mysite</span></p>
+        <p id="domainMessage" class="message"></p>
+      </section>
+
+      <section class="panel">
+        <div class="panel-title-row">
+          <div>
+            <h2>ドメイン管理</h2>
+            <p>RailwayやRenderなどの外部サイトを接続できます。</p>
+          </div>
+        </div>
+
+        <div id="domainList" class="management-list"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-title-row">
+          <div>
+            <h2>サイトを公開</h2>
+            <p>HTML・CSS・JavaScriptからSenninNetサイトを作成します。</p>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <label>
+            サイト名
+            <input id="siteTitle" type="text" maxlength="100">
+          </label>
+
+          <label>
+            カテゴリ
+            <select id="siteCategory">
+              <option>Technology</option>
+              <option>News</option>
+              <option>Games</option>
+              <option>Community</option>
+              <option>Tools</option>
+              <option>Education</option>
+              <option>Other</option>
+            </select>
+          </label>
+
+          <label class="full">
+            説明
+            <textarea id="siteDescription" maxlength="500"></textarea>
+          </label>
+
+          <label class="full">
+            キーワード
+            <input id="siteKeywords" type="text" maxlength="300" placeholder="technology, web, tools">
+          </label>
+
+          <label>
+            使用するドメイン
+            <select id="siteDomain">
+              <option value="">ドメインなし</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="editor-block">
+          <label>
+            HTML
+            <textarea id="siteHtml" class="code-editor" spellcheck="false"><main>
+  <h1>My Sennin Site</h1>
+  <p>Welcome to SenninNet.</p>
+</main></textarea>
+          </label>
+
+          <label>
+            CSS
+            <textarea id="siteCss" class="code-editor" spellcheck="false">body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  padding: 40px;
+  background: #f5f7fa;
+  color: #172033;
+}</textarea>
+          </label>
+
+          <label>
+            JavaScript
+            <textarea id="siteJavascript" class="code-editor" spellcheck="false">console.log("SenninNet site loaded");</textarea>
+          </label>
+        </div>
+
+        <button id="publishButton" class="primary-button large-button">サイトを公開</button>
+        <p id="publishMessage" class="message"></p>
+      </section>
+
+      <section class="panel">
+        <div class="panel-title-row">
+          <div>
+            <h2>自分のサイト</h2>
+            <p>公開中のサイトを管理します。</p>
+          </div>
+        </div>
+
+        <div id="siteList" class="management-list"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-title-row">
+          <div>
+            <h2>アカウント</h2>
+            <p id="developerUser"></p>
+          </div>
+          <button id="logoutButton" class="secondary-button">ログアウト</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
