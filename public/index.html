@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
+  <title>sennninnetwork</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand-small" href="/">sennninnetwork</a>
+
+    <nav class="topnav">
+      <a href="/settings.html">設定</a>
+      <a href="/developer.html">デベロッパー</a>
+    </nav>
+  </header>
+
+  <main class="search-home">
+    <section class="search-area">
+      <div class="main-logo">sennninnetwork</div>
+      <p class="tagline">SenninNetの世界を検索</p>
+
+      <form id="searchForm" class="search-form">
+        <div class="search-box">
+          <span class="search-icon">⌕</span>
+          <input
+            id="searchInput"
+            type="search"
+            autocomplete="off"
+            placeholder="SenninNetを検索"
+            maxlength="100"
+          >
+          <button type="button" id="clearSearch" class="clear-button">×</button>
+        </div>
+
+        <div class="search-buttons">
+          <button type="submit" class="primary-button">Sennin Search</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="resultsSection" class="results-section hidden">
+      <div class="results-header">
+        <div>
+          <h2>検索結果</h2>
+          <p id="resultInfo"></p>
+        </div>
+      </div>
+
+      <div id="results" class="results-list"></div>
+    </section>
+
+    <section class="quick-section">
+      <div class="quick-card">
+        <span class="quick-icon">⌘</span>
+        <div>
+          <strong>Sennin Browser</strong>
+          <p>SenninNetのサイトを閲覧</p>
+        </div>
+        <a href="/browser.html">開く</a>
+      </div>
+
+      <div class="quick-card">
+        <span class="quick-icon">◇</span>
+        <div>
+          <strong>Developer</strong>
+          <p>サイト公開・ドメイン管理</p>
+        </div>
+        <a href="/developer.html">開く</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>sennninnetwork</span>
+    <span>SenninNet 2.0</span>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
