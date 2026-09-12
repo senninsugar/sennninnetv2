@@ -20,7 +20,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
+  min-height: 100vh;
 }
 
 body {
@@ -36,7 +36,6 @@ body {
   color: var(--text);
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 
 a {
@@ -79,22 +78,24 @@ button {
   font-weight: 750;
   letter-spacing: -0.04em;
   color: var(--text);
-  opacity: 0; /* Hidden on landing page for Google-like cleanliness */
+  opacity: 0;
+  pointer-events: none;
   transition: opacity 0.2s ease;
 }
 
 .topnav {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
+  margin-left: auto;
 }
 
 .topnav a {
-  padding: 8px 14px;
+  padding: 8px 16px;
   border-radius: 20px;
   color: var(--muted);
   font-size: 14px;
-  transition: background-color 0.15s ease;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .topnav a:hover,
@@ -110,9 +111,8 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 120px 20px 40px;
+  padding: 140px 20px 40px;
   width: 100%;
-  max-width: 100%;
 }
 
 .search-area {
@@ -132,7 +132,7 @@ button {
 
 .tagline {
   color: var(--muted);
-  margin: 0 0 32px;
+  margin: 0 0 28px;
   font-size: 15px;
 }
 
@@ -376,6 +376,13 @@ button {
   font-size: 13px;
   border-top: 1px solid var(--border);
   background: var(--surface);
+}
+
+.footer-left,
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .developer-page,
@@ -696,7 +703,7 @@ textarea {
   }
 
   .search-home {
-    padding-top: 80px;
+    padding-top: 100px;
   }
 
   .quick-section {
