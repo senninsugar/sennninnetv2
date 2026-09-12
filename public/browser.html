@@ -6,7 +6,7 @@
   <title>Sennin Browser - sennninnetwork</title>
   <link rel="stylesheet" href="/style.css">
 </head>
-<body>
+<body class="browser-body">
   <header class="topbar">
     <a class="brand-small" href="/">sennninnetwork</a>
 
@@ -19,31 +19,46 @@
 
   <main class="browser-page">
     <section class="browser-shell">
+      <!-- Chrome風 タブバー -->
+      <div class="chrome-tabbar">
+        <div class="chrome-tab active">
+          <span class="tab-icon">🌐</span>
+          <span id="browserInfo" class="tab-title">Sennin Browser</span>
+          <button class="tab-close" type="button" aria-label="閉じる">×</button>
+        </div>
+        <button class="chrome-newtab" type="button" aria-label="新しいタブ">+</button>
+      </div>
+
+      <!-- Chrome風 ツールバー (ナビゲーション & アドレスバー) -->
       <div class="browser-toolbar">
-        <button id="browserBack" class="browser-button">←</button>
-        <button id="browserForward" class="browser-button">→</button>
-        <button id="browserReload" class="browser-button">↻</button>
+        <div class="toolbar-nav-group">
+          <button id="browserBack" class="browser-button" title="戻る" type="button">←</button>
+          <button id="browserForward" class="browser-button" title="進む" type="button">→</button>
+          <button id="browserReload" class="browser-button" title="再読み込み" type="button">↻</button>
+        </div>
 
-        <input
-          id="browserAddress"
-          class="browser-address"
-          type="text"
-          placeholder="snn://example または https://example.com"
-        >
+        <div class="address-bar-wrapper">
+          <span class="address-security-icon">🔒</span>
+          <input
+            id="browserAddress"
+            class="browser-address"
+            type="text"
+            placeholder="snn://example または https://example.com"
+          >
+        </div>
 
-        <button id="browserGo" class="primary-button">移動</button>
+        <button id="browserGo" class="primary-button" type="button">移動</button>
       </div>
 
-      <div id="browserInfo" class="browser-info">
-        Sennin Browser
+      <!-- メイン表示領域 (画角を大幅に拡大) -->
+      <div class="browser-viewport">
+        <iframe
+          id="browserFrame"
+          class="browser-frame"
+          title="Sennin Browser"
+          sandbox="allow-scripts allow-forms allow-popups allow-modals"
+        ></iframe>
       </div>
-
-      <iframe
-        id="browserFrame"
-        class="browser-frame"
-        title="Sennin Browser"
-        sandbox="allow-scripts allow-forms allow-popups allow-modals"
-      ></iframe>
     </section>
   </main>
 
