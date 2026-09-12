@@ -20,7 +20,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  min-height: 100%;
+  height: 100%;
 }
 
 body {
@@ -34,6 +34,9 @@ body {
     sans-serif;
   background: var(--bg);
   color: var(--text);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 a {
@@ -56,38 +59,42 @@ button {
   display: none !important;
 }
 
+/* Header / Navigation */
 .topbar {
-  height: 68px;
-  padding: 0 32px;
+  height: 60px;
+  padding: 0 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(255, 255, 255, 0.92);
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(16px);
-  position: sticky;
+  background: transparent;
+  position: absolute;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 20;
 }
 
 .brand-small {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 750;
   letter-spacing: -0.04em;
   color: var(--text);
+  opacity: 0; /* Hidden on landing page for Google-like cleanliness */
+  transition: opacity 0.2s ease;
 }
 
 .topnav {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
 }
 
 .topnav a {
-  padding: 9px 13px;
-  border-radius: 10px;
+  padding: 8px 14px;
+  border-radius: 20px;
   color: var(--muted);
   font-size: 14px;
+  transition: background-color 0.15s ease;
 }
 
 .topnav a:hover,
@@ -96,28 +103,36 @@ button {
   color: var(--text);
 }
 
+/* Main Search Home Section */
 .search-home {
-  min-height: calc(100vh - 68px);
-  padding: 80px 24px 40px;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 20px 40px;
+  width: 100%;
+  max-width: 100%;
 }
 
 .search-area {
-  width: min(760px, 100%);
+  width: min(584px, 100%);
   margin: 0 auto;
   text-align: center;
 }
 
 .main-logo {
-  font-size: clamp(42px, 8vw, 76px);
-  line-height: 1;
+  font-size: clamp(48px, 6vw, 72px);
+  line-height: 1.1;
   font-weight: 800;
-  letter-spacing: -0.065em;
+  letter-spacing: -0.05em;
   color: var(--text);
+  margin-bottom: 8px;
 }
 
 .tagline {
   color: var(--muted);
-  margin: 20px 0 28px;
+  margin: 0 0 32px;
   font-size: 15px;
 }
 
@@ -125,26 +140,33 @@ button {
   width: 100%;
 }
 
+/* Google-style Search Box */
 .search-box {
-  height: 58px;
+  height: 48px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 0 18px;
+  gap: 12px;
+  padding: 0 16px;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 30px;
-  box-shadow: 0 6px 24px rgba(23, 32, 51, 0.06);
+  border-radius: 24px;
+  box-shadow: 0 1px 6px rgba(23, 32, 51, 0.05);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.search-box:hover {
+  box-shadow: 0 2px 8px rgba(23, 32, 51, 0.12);
+  border-color: transparent;
 }
 
 .search-box:focus-within {
-  border-color: #aebbc9;
-  box-shadow: 0 8px 30px rgba(23, 32, 51, 0.1);
+  border-color: transparent;
+  box-shadow: 0 2px 12px rgba(23, 32, 51, 0.16);
 }
 
 .search-icon {
   color: var(--muted);
-  font-size: 28px;
+  font-size: 20px;
   line-height: 1;
 }
 
@@ -162,25 +184,29 @@ button {
   border: 0;
   background: transparent;
   color: var(--muted);
-  font-size: 22px;
+  font-size: 20px;
+  line-height: 1;
+  padding: 4px;
 }
 
 .search-buttons {
-  margin-top: 18px;
+  margin-top: 28px;
   display: flex;
   justify-content: center;
+  gap: 12px;
 }
 
 .primary-button,
 .secondary-button {
-  min-height: 42px;
-  padding: 0 18px;
-  border-radius: 10px;
+  min-height: 36px;
+  padding: 0 20px;
+  border-radius: 4px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border: 1px solid transparent;
-  transition: 0.15s ease;
+  transition: all 0.15s ease;
+  font-size: 14px;
 }
 
 .primary-button {
@@ -190,7 +216,7 @@ button {
 
 .primary-button:hover {
   background: var(--primary-hover);
-  transform: translateY(-1px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
 }
 
 .secondary-button {
@@ -208,87 +234,96 @@ button {
   margin-top: 8px;
 }
 
+/* Quick Navigation Section */
 .quick-section {
-  width: min(900px, 100%);
-  margin: 70px auto 0;
+  width: min(584px, 100%);
+  margin: 40px auto 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
+  gap: 16px;
 }
 
 .quick-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 22px;
+  border-radius: 12px;
+  padding: 16px;
   display: grid;
-  grid-template-columns: 42px 1fr auto;
+  grid-template-columns: 36px 1fr auto;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
+  box-shadow: 0 1px 3px rgba(23, 32, 51, 0.04);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.quick-card:hover {
+  transform: translateY(-2px);
   box-shadow: var(--shadow);
 }
 
 .quick-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
   display: grid;
   place-items: center;
   background: var(--surface-soft);
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .quick-card strong {
   display: block;
-  margin-bottom: 4px;
+  font-size: 14px;
+  margin-bottom: 2px;
 }
 
 .quick-card p {
   margin: 0;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .quick-card a {
   color: var(--accent);
-  font-weight: 650;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 13px;
 }
 
+/* Results Section */
 .results-section {
-  width: min(900px, 100%);
-  margin: 60px auto 0;
+  width: min(650px, 100%);
+  margin: 40px auto 0;
 }
 
 .results-header {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid var(--border);
-  padding-bottom: 16px;
+  padding-bottom: 12px;
 }
 
 .results-header h2 {
   margin: 0;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .results-header p {
-  margin: 5px 0 0;
+  margin: 4px 0 0;
   color: var(--muted);
   font-size: 13px;
 }
 
 .results-list {
   display: grid;
-  gap: 12px;
-  margin-top: 18px;
+  gap: 16px;
+  margin-top: 20px;
 }
 
 .result-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 20px;
+  border-radius: 12px;
+  padding: 16px;
 }
 
 .result-card:hover {
@@ -298,45 +333,49 @@ button {
 .result-url {
   color: var(--accent);
   font-size: 13px;
-  margin-bottom: 7px;
+  margin-bottom: 6px;
 }
 
 .result-card h3 {
-  margin: 0 0 7px;
+  margin: 0 0 6px;
   font-size: 18px;
 }
 
 .result-card p {
   margin: 0;
   color: var(--muted);
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .result-meta {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 14px;
+  margin-top: 12px;
 }
 
 .meta-pill,
 .status-pill {
   display: inline-flex;
   align-items: center;
-  padding: 5px 9px;
+  padding: 4px 8px;
   border-radius: 999px;
   background: var(--surface-soft);
   color: var(--muted);
   font-size: 12px;
 }
 
+/* Footer Section */
 .footer {
-  padding: 25px 32px;
+  margin-top: auto;
+  padding: 16px 24px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
   border-top: 1px solid var(--border);
+  background: var(--surface);
 }
 
 .developer-page,
@@ -344,7 +383,7 @@ button {
 .browser-page {
   width: min(1100px, calc(100% - 40px));
   margin: 0 auto;
-  padding: 55px 0 80px;
+  padding: 80px 0 80px;
 }
 
 .page-heading {
@@ -644,20 +683,20 @@ textarea {
 
 @media (max-width: 760px) {
   .topbar {
-    padding: 0 17px;
+    padding: 0 16px;
   }
 
   .topnav {
-    gap: 2px;
+    gap: 4px;
   }
 
   .topnav a {
-    padding: 8px;
-    font-size: 12px;
+    padding: 6px 10px;
+    font-size: 13px;
   }
 
   .search-home {
-    padding-top: 65px;
+    padding-top: 80px;
   }
 
   .quick-section {
@@ -668,7 +707,7 @@ textarea {
   .settings-page,
   .browser-page {
     width: min(100% - 24px, 1100px);
-    padding-top: 30px;
+    padding-top: 60px;
   }
 
   .page-heading h1 {
@@ -713,6 +752,6 @@ textarea {
   }
 
   .footer {
-    padding: 20px 17px;
+    padding: 16px;
   }
 }
