@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>設定 - sennninnetwork</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand-small" href="/">sennninnetwork</a>
+
+    <nav class="topnav">
+      <a class="active" href="/settings.html">設定</a>
+      <a href="/developer.html">デベロッパー</a>
+    </nav>
+  </header>
+
+  <main class="settings-page">
+    <section class="page-heading">
+      <p class="eyebrow">SETTINGS</p>
+      <h1>設定</h1>
+      <p>SenninNetの利用設定を管理します。</p>
+    </section>
+
+    <section class="settings-list">
+      <div class="setting-item">
+        <div>
+          <strong>検索設定</strong>
+          <p>検索結果をSenninNet内のサイトから取得します。</p>
+        </div>
+        <span class="status-pill">有効</span>
+      </div>
+
+      <div class="setting-item">
+        <div>
+          <strong>Sennin Browser</strong>
+          <p>SenninNetのサイトをブラウザ形式で表示します。</p>
+        </div>
+        <a class="secondary-button" href="/browser.html">開く</a>
+      </div>
+
+      <div class="setting-item">
+        <div>
+          <strong>デベロッパー</strong>
+          <p>サイト公開、Sennin Domain、Railway・Render接続を管理します。</p>
+        </div>
+        <a class="primary-button" href="/developer.html">開発ページへ</a>
+      </div>
+
+      <div class="setting-item">
+        <div>
+          <strong>アカウント</strong>
+          <p id="accountStatus">確認中...</p>
+        </div>
+        <a class="secondary-button" href="/developer.html">管理</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>sennninnetwork</span>
+    <span>SenninNet 2.0</span>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
