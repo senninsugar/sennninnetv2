@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
+  <title>検索結果 - sennninnetwork</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand-small" href="/">sennninnetwork</a>
+
+    <nav class="topnav">
+      <a href="/settings.html">設定</a>
+      <a href="/developer.html">デベロッパー</a>
+    </nav>
+  </header>
+
+  <main class="search-results-page">
+    <section class="search-area compact">
+      <form id="searchForm" class="search-form" action="/results.html" method="GET">
+        <div class="search-box">
+          <span class="search-icon">⌕</span>
+          <input
+            id="searchInput"
+            name="q"
+            type="search"
+            autocomplete="off"
+            placeholder="SenninNetを検索"
+            maxlength="100"
+            required
+          >
+          <button type="button" id="clearSearch" class="clear-button">×</button>
+        </div>
+
+        <div class="search-buttons">
+          <button type="submit" class="primary-button">Sennin Search</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="resultsSection" class="results-section">
+      <div class="results-header">
+        <div>
+          <h2>検索結果</h2>
+          <p id="resultInfo"></p>
+        </div>
+      </div>
+
+      <div id="results" class="results-list"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-left">
+      <span>sennninnetwork</span>
+    </div>
+    <div class="footer-right">
+      <span>SenninNet 2.0</span>
+    </div>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
