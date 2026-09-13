@@ -22,15 +22,17 @@
       <div class="main-logo">sennninnetwork</div>
       <p class="tagline">SenninNetの世界を検索</p>
 
-      <form id="searchForm" class="search-form">
+      <form id="searchForm" class="search-form" action="/results.html" method="GET">
         <div class="search-box">
           <span class="search-icon">⌕</span>
           <input
             id="searchInput"
+            name="q"
             type="search"
             autocomplete="off"
             placeholder="SenninNetを検索"
             maxlength="100"
+            required
           >
           <button type="button" id="clearSearch" class="clear-button">×</button>
         </div>
@@ -40,19 +42,8 @@
         </div>
       </form>
     </section>
+  </main>
 
-    <section id="resultsSection" class="results-section hidden">
-      <div class="results-header">
-        <div>
-          <h2>検索結果</h2>
-          <p id="resultInfo"></p>
-        </div>
-      </div>
-
-      <div id="results" class="results-list"></div>
-    </section>
-
-    
   <footer class="footer">
     <div class="footer-left">
       <span>sennninnetwork</span>
